@@ -1,0 +1,28 @@
+[{
+	"tag": "CS",
+	"id": "123456",
+	"content": "CS.html",
+	"RSSFeeds": [{
+		"id": "RSSFeed1",
+		"title": "Coolshell",
+		"url": "http://coolshell.cn/feed",
+		"items": []
+	}, {
+		"id": "RSSFeed2",
+		"title": "λ-calculus",
+		"url": "http://www.cppblog.com/vczh/Rss.aspx"
+	}]
+}, {
+	"tag": "News",
+	"id": "456789",
+	"content": "CS.html",
+	"RSSFeeds": [{
+		"id": "RSSFeed3",
+		"title": "部落头条",
+		"url": "http://feed.feedsky.com/my1510"
+	}, {
+		"id": "RSSFeed4",
+		"title": "编辑推荐",
+		"url": "http://feed.feedsky.com/my1510recommded"
+	}]
+}]
