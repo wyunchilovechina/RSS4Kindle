@@ -6,11 +6,28 @@
 		"id": "RSSFeed1",
 		"title": "Coolshell",
 		"url": "http://coolshell.cn/feed",
-		"items": []
+		"items": [{
+			"title": "数据即代码：元驱动编程",
+			"link": "http://coolshell.cn/articles/10337.html",
+			"id": "coolshell_item1"
+		}, {
+			"title": "数据的游戏：冰与火",
+			"link": "http://coolshell.cn/articles/10192.html",
+			"id": "coolshell_item2"
+		}]
 	}, {
 		"id": "RSSFeed2",
 		"title": "λ-calculus",
-		"url": "http://www.cppblog.com/vczh/Rss.aspx"
+		"url": "http://www.cppblog.com/vczh/Rss.aspx",
+		"items": [{
+			"title": "如何设计一门语言（九）&mdash;&mdash;类型",
+			"link": "http://www.cppblog.com/vczh/archive/2013/08/17/202605.html",
+			"id": "λ-calculus_item1"
+		}, {
+			"title": "如何设计一门语言（八）&mdash;&mdash;异步编程和CPS变换",
+			"link": "http://www.cppblog.com/vczh/archive/2013/07/27/202154.html",
+			"id": "λ-calculus_item2"
+		}]
 	}]
 }, {
 	"tag": "News",
@@ -19,10 +36,28 @@
 	"RSSFeeds": [{
 		"id": "RSSFeed3",
 		"title": "部落头条",
-		"url": "http://feed.feedsky.com/my1510"
+		"url": "http://feed.feedsky.com/my1510",
+		"items": [{
+			"title": "my1510_title1",
+			"link": "http://feed.feedsky.com/my1510/1",
+			"id": "my1510_item1"
+		}, {
+			"title": "my1510_title2",
+			"link": "http://feed.feedsky.com/my1510/2",
+			"id": "my1510_item2"
+		}]
 	}, {
 		"id": "RSSFeed4",
 		"title": "编辑推荐",
-		"url": "http://feed.feedsky.com/my1510recommded"
+		"url": "http://feed.feedsky.com/my1510recommded",
+		"items": [{
+			"title": "my1510recommded_title1",
+			"link": "http://feed.feedsky.com/my1510recommded/1",
+			"id": "my1510recommded_item1"
+		}, {
+			"title": "my1510recommded_title2",
+			"link": "http://feed.feedsky.com/my1510recommded/2",
+			"id": "my1510recommded_item2"
+		}]
 	}]
 }]

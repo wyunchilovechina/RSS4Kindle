@@ -8,14 +8,15 @@ import codecs
 from hashlib import md5
 import sys
 import re
+import json
 
 
 #mysql_connection = MySQLdb.connect(host = 'localhost', user = 'root', passwd = '19911230', db = 'RSS4Kindle', charset = "utf8")
 #cur = mysql_connection.cursor()
 
 def generateHTML(item):
-	#tmp_html = codecs.open(item['title'].replace('/', '\\') + '.html', 'w', 'utf-8')
-	tmp_html = codecs.open(item['title'] + '.html', 'w', 'utf-8')
+	tmp_html = codecs.open(item['title'].replace('/', '\\') + '.html', 'w', 'utf-8')
+	#tmp_html = codecs.open(item['title'] + '.html', 'w', 'utf-8')
 	tmp_html.write("<html xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"zh-CN\">\n")
 	tmp_html.write("<head>\n")
 	tmp_html.write("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n")
@@ -127,8 +128,39 @@ def generate_book_index():
 	pass
 
 href_list = [{'href' :"1.html", 'filetype' : "\"application/xhtml+xml\""}, {'href' : "2.html", 'filetype' : "\"application/xhtml+xml\""}, {'href' : "3.html", 'filetype' : "\"application/xhtml+xml\""}]
-print generate_manifest(href_list)
-fetch_url('http://coolshell.cn/feed')
+#print generate_manifest(href_list)
+#fetch_url('http://coolshell.cn/feed')
+
+def test_generate_ncx(item_tree):
+	result = ""
+	playOrder = 0
+	for tag_tree in item_tree:
+		result += '<navPoint id=\"' + tag_tree['id'] + '\" playOrder=\"' + str(playOrder) + '\">\n'
+		result += '<navLabel><text>' + tag_tree['tag'] + '</text></navLabel>\n'
+		result += '<content src="' + tag_tree['content'] + '"/>\n'
+		playOrder = playOrder + 1
+		#print tag_tree['tag']
+		for RSSFeed_tree in tag_tree['RSSFeeds']:
+			result += '<navPoint id=\"' + RSSFeed_tree['id'] + '\" playOrder=\"' + str(playOrder) + '\">\n'
+			result += '<navLabel><text>' + RSSFeed_tree['title'] + '</text></navLabel>\n'
+			result += '<content src="' + RSSFeed_tree['url'] + '"/>\n'
+			for item in RSSFeed_tree['items']:
+				result += '<navPoint id=\"' + item['id'] + '\" playOrder=\"' + str(playOrder) + '\">\n'
+				result += '<navLabel><text>' + item['title'] + '</text></navLabel>\n'
+				result += '<content src="' + item['link'] + '"/>\n'
+				result += '</navPoint>\n'
+			result += '</navPoint>\n'
+			#print RSSFeed_tree['url']
+		result += '</navPoint>\n'
+	print result
+
+def test():
+	json_file = file("../test/test.json")
+	item_tree = json.load(json_file)
+
+	test_generate_ncx(item_tree)
+
+test()
 
 #cur.close()
 #mysql_connection.commit()
